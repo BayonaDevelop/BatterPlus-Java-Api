@@ -1,0 +1,39 @@
+server:
+  port: 7001
+spring:
+  application:
+    name: mssql-data
+
+  datasource:
+    type: com.zaxxer.hikari.HikariDataSource
+    driverClassName: com.microsoft.sqlserver.jdbc.SQLServerDriver
+    url: jdbc:sqlserver://localhost:1433;databaseName=BatteryPlus;integratedSecurity=false;encrypt=true;trustServerCertificate=true
+    username: sa
+    password: sql
+    hikari:
+      minimum-idle: 5
+      maximum-pool-size: 20
+      idle-timeout: 30000
+      poolName: HikariBatteryPlusDev
+      max-lifetime: 2000000
+      connection-timeout: 30000
+  jpa:
+    open-in-view: false
+    database-platform: org.hibernate.dialect.SQLServerDialect
+    hibernate:
+      naming.physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+    properties:
+      hibernate:
+        #archive:
+        #autodetection: true
+        jdb:
+          lob:
+            non_contextual_creation: true
+        show_sql: true
+        format_sql: true
+
+logging:
+  level:
+    org:
+      hibernate:
+        SQL: debug
