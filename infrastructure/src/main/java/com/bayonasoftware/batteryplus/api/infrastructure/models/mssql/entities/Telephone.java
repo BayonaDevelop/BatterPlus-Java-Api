@@ -38,10 +38,10 @@ public class Telephone {
   @Column(name = "Id", nullable = false)
   private int id;
 
-  @Column(name = "Number", length = 2147483647, nullable = false)
+  @Column(name = "Number", length = 2147483647)
   private String number;
 
-  @Column(name = "Extensions", length = 2147483647, nullable = false)
+  @Column(name = "Extensions", length = 2147483647)
   private String extensions;
 
 }
